@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Snowy {
     public static void main(String[] args) {
         // Version 1:
@@ -8,8 +10,19 @@ public class Snowy {
         line();
         greeting();
         line();
-        bye();
-        line();
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            String command = scanner.next();
+            if (command.equals("bye") || command.equals("Bye")) {
+                line();
+                bye();
+                line();
+                break;
+            }
+            line();
+            System.out.println(command);
+            line();
+        }
 
 
 //        String logo = " ____        _        \n"
