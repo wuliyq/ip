@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Snowy {
-    public static ArrayList<String> tasks = new ArrayList<>();
+    public static ArrayList<Task> tasks = new ArrayList<>();
 
     public static void main(String[] args) {
         // Version 1:
@@ -16,16 +16,46 @@ public class Snowy {
         line();
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            String command = scanner.nextLine();
+            String input = scanner.nextLine();
+            String[] parts = input.split(" ");
+            String command = parts[0];
             line();
-            if (command.equals("bye") || command.equals("Bye")) {
-                bye();
-                break;
-            } else if (command.equals("list") || command.equals("List")) {
-                list();
+            if ((command.equals("mark") || command.equals("unmark")) &&
+                    parts.length > 1) {
+                int taskNum = -1;
+                try {
+                    taskNum = Integer.parseInt(parts[1]);
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid task number :(");
+                } finally {
+                    if ((!tasks.isEmpty()) &&
+                            taskNum > 0 &&
+                            taskNum <= tasks.size()) {
+                        Task cur = tasks.get(taskNum - 1);
+                        if (command.equals("mark")) {
+                            cur.mark();
+                            System.out.println("Sure! I've marked this task as done:");
+                            System.out.println("  [X] " + cur.getTask());
+                        }
+                        if (command.equals("unmark")) {
+                            cur.unmark();
+                            System.out.println("OK, I've marked this task as not done yet:");
+                            System.out.println("  [ ] " + cur.getTask());
+                        }
+                    } else {
+                        System.out.println("Invalid input! Please try again!");
+                    }
+                }
             } else {
-                tasks.add(command);
-                System.out.println("added: " + command);
+                if (input.equals("bye") || input.equals("Bye")) {
+                    bye();
+                    break;
+                } else if (input.equals("list") || input.equals("List")) {
+                    list();
+                } else {
+                    tasks.add(new Task(input));
+                    System.out.println("added: " + input);
+                }
             }
             line();
         }
@@ -54,9 +84,16 @@ public class Snowy {
 
     public static void list() {
         if (!tasks.isEmpty()) {
+            System.out.println("Here are the tasks in your list:");
             int count = tasks.size();
             for (int i = 0; i < count; i++) {
-                System.out.println(i + ". " + tasks.get(i));
+                Task cur = tasks.get(i);
+                int num = i + 1;
+                if (cur.checkStatus()) {
+                    System.out.println(num + ".[X] " + cur.getTask());
+                } else {
+                    System.out.println(num + ".[ ] " + cur.getTask());
+                }
             }
         }
     }
