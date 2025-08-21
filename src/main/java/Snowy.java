@@ -1,6 +1,10 @@
+import java.sql.Array;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Snowy {
+    public static ArrayList<String> tasks = new ArrayList<>();
+
     public static void main(String[] args) {
         // Version 1:
 //        System.out.println("Hello! I'm Snowy!\n");
@@ -12,17 +16,20 @@ public class Snowy {
         line();
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            String command = scanner.next();
+            String command = scanner.nextLine();
+            line();
             if (command.equals("bye") || command.equals("Bye")) {
-                line();
                 bye();
-                line();
                 break;
+            } else if (command.equals("list") || command.equals("List")) {
+                list();
+            } else {
+                tasks.add(command);
+                System.out.println("added: " + command);
             }
             line();
-            System.out.println(command);
-            line();
         }
+        line();
 
 
 //        String logo = " ____        _        \n"
@@ -43,5 +50,14 @@ public class Snowy {
 
     public static void bye() {
         System.out.println( "Bye! Hope to see you again :D");
+    }
+
+    public static void list() {
+        if (!tasks.isEmpty()) {
+            int count = tasks.size();
+            for (int i = 0; i < count; i++) {
+                System.out.println(i + ". " + tasks.get(i));
+            }
+        }
     }
 }
