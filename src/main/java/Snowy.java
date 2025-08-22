@@ -20,7 +20,26 @@ public class Snowy {
             String[] parts = input.split(" ");
             String command = parts[0];
             line();
-            if ((command.equals("mark") || command.equals("unmark")) &&
+            if (command.equals("todo") || command.equals("deadline") || command.equals("event")) {
+                Task task;
+                if (command.equals("todo")) {
+                    String content = input.substring(5);
+                    task = new ToDo(content);
+                } else if (command.equals("deadline")) {
+                    String content = input.substring(9);
+                    String[] ddlParts = content.split(" /by ");
+                    task = new Deadline(ddlParts[0], ddlParts[1]);
+                } else {
+                    String content = input.substring(6);
+                    String[] eventParts = content.split(" /from ");
+                    String[] timings = eventParts[1].split(" /to ");
+                    task = new Event(eventParts[0], timings[0], timings[1]);
+                }
+                tasks.add(task);
+                System.out.println("Got it. I've added this task:");
+                System.out.println("  " + task);
+                System.out.println("Now you have " + tasks.size() + " tasks in the list.");
+            } else if ((command.equals("mark") || command.equals("unmark")) &&
                     parts.length > 1) {
                 int taskNum = -1;
                 try {
@@ -35,12 +54,12 @@ public class Snowy {
                         if (command.equals("mark")) {
                             cur.mark();
                             System.out.println("Sure! I've marked this task as done:");
-                            System.out.println("  [X] " + cur.getTask());
+                            System.out.println(cur);
                         }
                         if (command.equals("unmark")) {
                             cur.unmark();
                             System.out.println("OK, I've marked this task as not done yet:");
-                            System.out.println("  [ ] " + cur.getTask());
+                            System.out.println(cur);
                         }
                     } else {
                         System.out.println("Invalid input! Please try again!");
@@ -53,8 +72,7 @@ public class Snowy {
                 } else if (input.equals("list") || input.equals("List")) {
                     list();
                 } else {
-                    tasks.add(new Task(input));
-                    System.out.println("added: " + input);
+                    System.out.println("Invalid input!");
                 }
             }
             line();
@@ -89,11 +107,7 @@ public class Snowy {
             for (int i = 0; i < count; i++) {
                 Task cur = tasks.get(i);
                 int num = i + 1;
-                if (cur.checkStatus()) {
-                    System.out.println(num + ".[X] " + cur.getTask());
-                } else {
-                    System.out.println(num + ".[ ] " + cur.getTask());
-                }
+                System.out.println(num + "." + cur);
             }
         }
     }
