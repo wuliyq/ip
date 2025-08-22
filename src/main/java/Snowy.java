@@ -87,6 +87,19 @@ public class Snowy {
                                 }
                             }
                         }
+                    } else if (command.equals("delete") && parts.length > 1) {
+                        int taskNum = -1;
+                        try {
+                            taskNum = Integer.parseInt(parts[1]);
+                        } catch (NumberFormatException e) {
+                            System.out.println("Invalid task number :(");
+                        } finally {
+                            if ((!tasks.isEmpty()) && taskNum > 0 && taskNum <= tasks.size()) {
+                                delete(taskNum);
+                            } else {
+                                System.out.println("Invalid task number :(");
+                            }
+                        }
                     } else {
                         System.out.println("Invalid input!");
                     }
@@ -129,5 +142,12 @@ public class Snowy {
                 System.out.println(num + "." + cur);
             }
         }
+    }
+
+    public static void delete(int num) {
+        System.out.println("Noted. I've removed this task:");
+        System.out.println("  " + tasks.get(num - 1));
+        tasks.remove(num - 1);
+        System.out.println("Now you have " + tasks.size() + " tasks in the list.");
     }
 }
