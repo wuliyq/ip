@@ -78,12 +78,12 @@ public class Snowy {
                                 if (command.equals("mark")) {
                                     cur.mark();
                                     System.out.println("Sure! I've marked this task as done:");
-                                    System.out.println(cur);
+                                    System.out.println("  " + cur);
                                 }
                                 if (command.equals("unmark")) {
                                     cur.unmark();
                                     System.out.println("OK, I've marked this task as not done yet:");
-                                    System.out.println(cur);
+                                    System.out.println("  " + cur);
                                 }
                             }
                         }

@@ -1,4 +1,5 @@
-package PACKAGE_NAME;
-
-public class SnowyException {
+public class SnowyException extends Exception {
+    public SnowyException(String e) {
+        super(e);
+    }
 }
