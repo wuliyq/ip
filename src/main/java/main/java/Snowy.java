@@ -1,4 +1,10 @@
+package main.java;
+
 import java.util.Scanner;
+
+import Task;
+import ToDo;
+
 import java.util.ArrayList;
 
 public class Snowy {
@@ -10,6 +16,9 @@ public class Snowy {
 //        System.out.println("What can I do for you?");
 //        System.out.println("Bye! Hope to see you again :D");
         // Version 2:
+        Storage storage = new Storage("./data/snowy.txt");
+        ArrayList<Task> loadedTaskes = storage.load();
+        tasks = new ArrayList<>(loadedTaskes);
         line();
         greeting();
         line();
@@ -42,7 +51,8 @@ public class Snowy {
                             if (!content.contains(" /by ")) {
                                 throw new SnowyException("You need to indicate a due date for a deadline task!");
                             }
-                            String[] ddlParts = content.split(" /by ");
+                            // String[] ddlParts = content.split(" /by ");
+                            String[] ddlParts = content.split(" /");
                             task = new Deadline(ddlParts[0], ddlParts[1]);
                         } else {
                             if (parts.length < 2) {
@@ -52,9 +62,9 @@ public class Snowy {
                             if ((!content.contains(" /from ")) || (!content.contains(" /to "))) {
                                 throw new SnowyException("An event task needs to have both starting time and end time!");
                             }
-                            String[] eventParts = content.split(" /from ");
-                            String[] timings = eventParts[1].split(" /to ");
-                            task = new Event(eventParts[0], timings[0], timings[1]);
+                            String[] eventParts = content.split(" /");
+                            // String[] timings = eventParts[1].split(" /to ");
+                            task = new Event(eventParts[0], eventParts[0] + " " + eventParts[1]);
                         }
                         tasks.add(task);
                         System.out.println("Got it. I've added this task:");
@@ -112,14 +122,15 @@ public class Snowy {
         line();
 
 
-//        String logo = " ____        _        \n"
-//                + "|  _ \\ _   _| | _____ \n"
-//                + "| | | | | | | |/ / _ \\\n"
-//                + "| |_| | |_| |   <  __/\n"
-//                + "|____/ \\__,_|_|\\_\\___|\n";
-//        System.out.println("Hello from\n" + logo);
+       String logo = " ____        _        \n"
+               + "|  _ \\ _   _| | _____ \n"
+               + "| | | | | | | |/ / _ \\\n"
+               + "| |_| | |_| |   <  __/\n"
+               + "|____/ \\__,_|_|\\_\\___|\n";
+       System.out.println("Hello from\n" + logo);
     }
 
+    
     public static void line() {
         System.out.println("____________________________________________________________");
     }
