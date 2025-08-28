@@ -1,10 +1,4 @@
-package main.java;
-
 import java.util.Scanner;
-
-import Task;
-import ToDo;
-
 import java.util.ArrayList;
 
 public class Snowy {
