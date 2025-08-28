@@ -1,10 +1,16 @@
+package main.java;
+
 public class Task {
     private String task;
     private boolean done;
 
     public Task(String task) {
         this.task = task;
-        this.done = false;
+    }
+
+    public Task(String task, boolean isDone) {
+        this.task = task;
+        this.done = isDone;
     }
 
     @Override
