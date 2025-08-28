@@ -1,16 +1,18 @@
-public class Deadline extends Task {
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
-    private String time;
+public class Deadline extends Task {
+    private LocalDate dateTime;
 
     public Deadline(String task, String time) {
         super(task);
-        this.time = time;
+        this.dateTime = LocalDate.parse(time, DateTimeFormatter.ofPattern("yyyy-mm-dd"));
     }
     
     public Deadline(String task, boolean isDone, String time) {
-            super(task, isDone);
-            this.time = time;
-        }
+        super(task, isDone);
+        this.dateTime = LocalDate.parse(time, DateTimeFormatter.ofPattern("yyyy-mm-dd"));
+    }
 
     @Override
     public String toString() {
@@ -18,10 +20,7 @@ public class Deadline extends Task {
             (this.checkStatus() ? "[X] " : "[ ] ") +
             super.toString() + 
             "(" +
-            this.time +
+            this.dateTime.format(DateTimeFormatter.ofPattern("MMM dd yyyy")) +
             ")";
-            // " (by: " +
-            // this.time +
-            // ")";
     }
 }

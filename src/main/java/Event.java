@@ -1,12 +1,17 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Event extends Task{
     
     // private String startTime;
     // private String endTime;
     private String time;
+    // private LocalDateTime dateTime;
 
     public Event(String task, String time) {
         super(task);
         this.time = time;
+        // this.dateTime = LocalDateTime.parse(time);
     }
 
     public Event(String task, boolean isDone, String time) {
@@ -25,7 +30,8 @@ public class Event extends Task{
                 // this.endTime +
                 // ")";
                 " (" +
-                this.time + 
+                this.time +
+                // this.dateTime.format(DateTimeFormatter.ofPattern("MMM dd yyyy")) + 
                 ")";
     }
 }
