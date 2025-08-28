@@ -1,5 +1,3 @@
-package main.java;
-
 public class Task {
     private String task;
     private boolean done;

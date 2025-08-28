@@ -1,7 +1,3 @@
-package main.java;
-
-import Task;
-
 public class Deadline extends Task {
 
     private String time;
