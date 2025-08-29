@@ -1,5 +1,6 @@
+package snowy;
 
-
+import snowy.task.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;

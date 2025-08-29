@@ -1,3 +1,5 @@
+package snowy;
+
 public class Parser {
     public static boolean isEnd;
 

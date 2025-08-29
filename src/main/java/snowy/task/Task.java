@@ -1,4 +1,4 @@
-
+package snowy.task;
 
 public class Task {
     private String task;
