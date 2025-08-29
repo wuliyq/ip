@@ -22,10 +22,16 @@ public class Task {
         return this.done;
     }
 
+    /**
+     * Changes the boolean attribute done of the task to true to mark it as done.
+     */
     public void mark() {
         this.done = true;
     }
 
+    /**
+     * Changes the boolean attribute done of the task to false to mark it as not done.
+     */
     public void unmark() {
         this.done = false;
     }

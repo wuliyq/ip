@@ -3,6 +3,9 @@ package snowy.task;
 // import java.time.LocalDateTime;
 // import java.time.format.DateTimeFormatter;
 
+/**
+ * Represents a task with a specific start time and an end time.
+ */
 public class Event extends Task{
     
     // private String startTime;

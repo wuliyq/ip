@@ -4,16 +4,31 @@ import java.util.Scanner;
 import snowy.*;
 import snowy.task.*;
 
+/**
+ * Creates a user interface object which can be used by the chatbot to interact with the user.
+ * It handles all output printing and input reading.
+ */
 public class Ui {
+    /**
+     * Reads input from what user types to the chatbot and passes the input to the parser.
+     * @throws SnowyException
+     */
     public static void readInput() throws SnowyException {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
         Parser.parse(input);
     }
+
+    /**
+     * Prints a line to sectioning segments.
+     */
     public static void line() {
         System.out.println("____________________________________________________________");
     }
 
+    /**
+     * Prints greeting message to the screen.
+     */
     public static void greeting() {
         line();
         System.out.println("Hello! I'm Snowy!");
@@ -46,6 +61,10 @@ public class Ui {
                 " in the list.");
     }
 
+    /**
+     * Prints the error message for invalid input.
+     * @param message
+     */
     public static void invalidInput(String message) {
         System.out.println(message);
     }

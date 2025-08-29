@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import snowy.ui.Ui;
 import snowy.task.*;
 
+/**
+ * Demonstrates a chatbot to the user which user can type and pass to it commands and
+ * the chatbot will give response.
+ */
 public class Snowy {
     public static ArrayList<Task> tasks;
 
@@ -143,22 +147,22 @@ public class Snowy {
 //        System.out.println( "Bye! Hope to see you again :D");
 //    }
 
-    public static void list() {
-        if (!tasks.isEmpty()) {
-            System.out.println("Here are the tasks in your list:");
-            int count = tasks.size();
-            for (int i = 0; i < count; i++) {
-                Task cur = tasks.get(i);
-                int num = i + 1;
-                System.out.println(num + "." + cur);
-            }
-        }
-    }
-
-    public static void delete(int num) {
-        System.out.println("Noted. I've removed this task:");
-        System.out.println("  " + tasks.get(num - 1));
-        tasks.remove(num - 1);
-        System.out.println("Now you have " + tasks.size() + " tasks in the list.");
-    }
+//    public static void list() {
+//        if (!tasks.isEmpty()) {
+//            System.out.println("Here are the tasks in your list:");
+//            int count = tasks.size();
+//            for (int i = 0; i < count; i++) {
+//                Task cur = tasks.get(i);
+//                int num = i + 1;
+//                System.out.println(num + "." + cur);
+//            }
+//        }
+//    }
+//
+//    public static void delete(int num) {
+//        System.out.println("Noted. I've removed this task:");
+//        System.out.println("  " + tasks.get(num - 1));
+//        tasks.remove(num - 1);
+//        System.out.println("Now you have " + tasks.size() + " tasks in the list.");
+//    }
 }

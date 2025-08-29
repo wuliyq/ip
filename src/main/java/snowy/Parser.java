@@ -1,8 +1,19 @@
 package snowy;
 
+import snowy.task.*;
+import snowy.ui.Ui;
+
+/**
+ * Parses the input string that is passed from Ui into different commands with specific information.
+ */
 public class Parser {
     public static boolean isEnd;
 
+    /**
+     * Parses the input string based on its content to generate corresponding commands and execute tasks.
+     * @param input
+     * @throws SnowyException
+     */
     public static void parse(String input) throws SnowyException{
         try {
             if (input.equals("bye") || input.equals("Bye")) {

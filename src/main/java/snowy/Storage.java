@@ -5,6 +5,10 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Stores and saves the changes made to the TaskList locally.
+ * Reads from a local txt files and adds the tasks inside to the TaskList.
+ */
 public class Storage {
     private final String filePath;
 
@@ -12,6 +16,10 @@ public class Storage {
         this.filePath = filePath;
     }
 
+    /**
+     * Loads content from a txt file and stores it.
+     * @return a TaskList consists of content inside the txt file
+     */
     public ArrayList<Task> load() {
         ArrayList<Task> tasks = new ArrayList<>();
         File file = new File(filePath);
@@ -36,7 +44,11 @@ public class Storage {
         }
         return tasks;
     }
-    
+
+    /**
+     * Saves the changes made to the TaskList to the local disk.
+     * @param tasks
+     */
     public void save(ArrayList<Task> tasks) {
         try (FileWriter writer = new FileWriter(filePath)) {
             for (Task task : tasks) {
@@ -47,6 +59,12 @@ public class Storage {
         }
     }
 
+    /**
+     * Creates different tasks based on the type of the task reads from the local txt file.
+     * @param line
+     * @return
+     * @throws Exception
+     */
     public Task parseLine(String line) throws Exception {
         String[] parts = line.split(" | ");
         if (parts.length < 3) {
