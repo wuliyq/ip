@@ -3,6 +3,9 @@ package snowy.task;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Represents a task with a specific due date.
+ */
 public class Deadline extends Task {
     private LocalDate dateTime;
 
