@@ -1,5 +1,9 @@
-import java.util.Scanner;
+package snowy;
+
+// import java.util.Scanner;
 import java.util.ArrayList;
+import snowy.ui.Ui;
+import snowy.task.*;
 
 public class Snowy {
     public static ArrayList<Task> tasks;
@@ -11,10 +15,10 @@ public class Snowy {
         // ystem.out.println("Bye! Hope to see you again :D");
         // Version 2:
         Storage storage = new Storage("./data/snowy.txt");
-        ArrayList<Task> loadedTaskes = storage.load();
+        ArrayList<Task> loadedTasks = storage.load();
         // Ui ui = new Ui();
         Ui.greeting();
-        tasks = new ArrayList<>(loadedTaskes);
+        tasks = new ArrayList<>(loadedTasks);
         while (true) {
             Ui.readInput();
             if (Parser.isEnd) {

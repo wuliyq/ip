@@ -1,4 +1,8 @@
+package snowy.ui;
+
 import java.util.Scanner;
+import snowy.*;
+import snowy.task.*;
 
 public class Ui {
     public static void readInput() throws SnowyException {
