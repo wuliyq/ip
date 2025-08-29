@@ -9,11 +9,6 @@ public class Snowy {
     public static ArrayList<Task> tasks;
 
     public static void main(String[] args) throws SnowyException {
-        // Version 1:
-        // System.out.println("Hello! I'm Snowy!\n");
-        // System.out.println("What can I do for you?");
-        // ystem.out.println("Bye! Hope to see you again :D");
-        // Version 2:
         Storage storage = new Storage("./data/snowy.txt");
         ArrayList<Task> loadedTasks = storage.load();
         // Ui ui = new Ui();
