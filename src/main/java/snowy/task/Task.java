@@ -2,6 +2,7 @@ package snowy.task;
 
 public class Task {
     private String task;
+
     private boolean done;
 
     public Task(String task) {

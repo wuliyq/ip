@@ -1,10 +1,12 @@
 package snowy;
 
 import snowy.task.*;
+
 import java.util.ArrayList;
 
 public class TaskList {
     public static ArrayList<Task> list;
+
     public TaskList() {
         list = new ArrayList<>();
     }

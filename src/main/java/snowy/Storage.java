@@ -1,8 +1,11 @@
 package snowy;
 
 import snowy.task.*;
+
 import java.io.*;
+
 import java.util.ArrayList;
+
 import java.util.Scanner;
 
 /**
@@ -22,6 +25,7 @@ public class Storage {
      */
     public ArrayList<Task> load() {
         ArrayList<Task> tasks = new ArrayList<>();
+
         File file = new File(filePath);
 
         if (!file.exists()) {
@@ -42,6 +46,7 @@ public class Storage {
         } catch (IOException e) {
             System.out.println("Error loading file: " + e.getMessage());
         }
+
         return tasks;
     }
 
@@ -67,12 +72,17 @@ public class Storage {
      */
     public Task parseLine(String line) throws Exception {
         String[] parts = line.split(" | ");
+
         if (parts.length < 3) {
             throw new Exception("Invalid input!");
         }
+
         String type = parts[0];
+
         boolean isDone = parts[1].equals("1");
+
         String task = parts[2];
+
         switch (type) {
             case "T":
                 return new ToDo(task, isDone);
