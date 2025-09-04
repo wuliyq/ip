@@ -1,16 +1,15 @@
 package snowy.command;
 
-import snowy.ui.Ui;
 import snowy.TaskList;
 import snowy.Storage;
 
 public class ListTasksCommand extends Command {
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
+    public String execute(TaskList tasks, Storage storage) {
         if (tasks.getSize() == 0) {
-            ui.handleEmptyTaskList();
+            return "You don't have upcoming tasks right now! Yeah! :D";
         } else {
-            ui.listTasks(tasks);
+            return tasks.toString();
         }
     }
 }

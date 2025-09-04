@@ -15,15 +15,16 @@ public class MarkCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
+    public String execute(TaskList tasks, Storage storage) {
         Task task = tasks.getTask(taskNum);
         if (isMarkDone) {
             task.mark();
-            ui.mark(task);
+            storage.save(tasks.getTasks());
+            return "Sure! I've marked this task as done: " + task;
         } else {
             task.unmark();
-            ui.unmark(task);
+            storage.save(tasks.getTasks());
+            return "OK, I've marked this task as not done yet: " + task;
         }
-        storage.save(tasks.getTasks());
     }
 }

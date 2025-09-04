@@ -1,6 +1,5 @@
 package snowy.command;
 
-import snowy.ui.Ui;
 import snowy.TaskList;
 import snowy.Storage;
 import snowy.task.Task;
@@ -13,10 +12,13 @@ public class DeleteCommand extends Command{
     }
 
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
+    public String execute(TaskList tasks, Storage storage) {
         Task task = tasks.getTask(taskNum);
         tasks.deleteTask(taskNum);
-        ui.delete(tasks, task);
         storage.save(tasks.getTasks());
+        return "Noted. I've removed this task: " +
+                task +
+                ". " +
+                "Now you have " + tasks.getSize() + " tasks in the list.";
     }
 }

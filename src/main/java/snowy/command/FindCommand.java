@@ -15,7 +15,7 @@ public class FindCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
+    public String execute(TaskList tasks, Storage storage) {
         ArrayList<Task> result = new ArrayList<>();
         int count = tasks.getSize();
         for (int i = 0; i < count; i++) {
@@ -25,9 +25,10 @@ public class FindCommand extends Command {
             }
         }
         if (result.isEmpty()) {
-            ui.handleInvalidInput("No tasks found with keyword: " + keyWord);
+            return "No tasks found with keyword: " + keyWord;
         } else {
-            ui.listFoundTasks(result);
+            TaskList output = new TaskList(result);
+            return output.toString();
         }
     }
 }
