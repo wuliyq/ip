@@ -1,9 +1,9 @@
 package snowy.task;
 
-public class Task {
+public abstract class Task {
     private String task;
 
-    private boolean done;
+    private boolean isDone;
 
     public Task(String task) {
         this.task = task;
@@ -11,7 +11,7 @@ public class Task {
 
     public Task(String task, boolean isDone) {
         this.task = task;
-        this.done = isDone;
+        this.isDone = isDone;
     }
 
     @Override
@@ -20,20 +20,20 @@ public class Task {
     }
 
     public boolean checkStatus() {
-        return this.done;
+        return this.isDone;
     }
 
     /**
      * Changes the boolean attribute done of the task to true to mark it as done.
      */
     public void mark() {
-        this.done = true;
+        this.isDone = true;
     }
 
     /**
-     * Changes the boolean attribute done of the task to false to mark it as not done.
+     * Changes the boolean attribute done of the task to false as marking it as not done.
      */
     public void unmark() {
-        this.done = false;
+        this.isDone = false;
     }
 }
