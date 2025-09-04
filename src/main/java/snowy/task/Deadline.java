@@ -11,12 +11,12 @@ public class Deadline extends Task {
 
     public Deadline(String task, String time) {
         super(task);
-        this.dateTime = LocalDate.parse(time, DateTimeFormatter.ofPattern("yyyy-mm-dd"));
+        this.dateTime = LocalDate.parse(time, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
     }
     
     public Deadline(String task, boolean isDone, String time) {
         super(task, isDone);
-        this.dateTime = LocalDate.parse(time, DateTimeFormatter.ofPattern("yyyy-mm-dd"));
+        this.dateTime = LocalDate.parse(time, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
     }
 
     @Override
