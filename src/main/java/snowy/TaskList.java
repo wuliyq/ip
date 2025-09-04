@@ -15,6 +15,18 @@ public class TaskList {
         list = new ArrayList<>(tasks);
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Here are the tasks in you list:\n");
+        int total = list.size();
+        for (int i = 0; i < total; i++) {
+            Task cur = list.get(i);
+            sb.append(i + 1).append(". ").append(cur).append("\n");
+        }
+        return sb.toString();
+    }
+
     public boolean isEmptyList() {
         return list.isEmpty();
     }

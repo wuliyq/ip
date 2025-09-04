@@ -1,6 +1,5 @@
 package snowy.command;
 
-import snowy.ui.Ui;
 import snowy.TaskList;
 import snowy.Storage;
 import snowy.task.Task;
@@ -13,9 +12,16 @@ public class AddTaskCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
+    public String execute(TaskList tasks, Storage storage) {
         tasks.addTask(task);
-        ui.addTask(tasks, task);
+//        ui.addTask(tasks, task);
         storage.save(tasks.getTasks());
+        return "Got it. I've added this task: " +
+                task +
+                ". " +
+                "Now you have " +
+                tasks.getSize() +
+                (tasks.getSize() == 1 ? " task" : " tasks") +
+                " in the list.";
     }
 }
