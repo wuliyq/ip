@@ -31,7 +31,7 @@ public class TaskList {
         return list.isEmpty();
     }
 
-    public ArrayList<Task> getTasks() {
+    public ArrayList<Task> getTaskList() {
         return list;
     }
 
@@ -50,12 +50,4 @@ public class TaskList {
     public void deleteTask(int taskNum) {
         list.remove(taskNum);
     }
-
-//    public void addTask(Task task) {
-//        list.add(task);
-//    }
-//
-//    public void deleteTask(int num) {
-//        list.remove(num - 1);
-//    }
 }
