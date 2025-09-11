@@ -6,6 +6,7 @@ import snowy.command.DeleteCommand;
 import snowy.command.FindCommand;
 import snowy.command.ListTasksCommand;
 import snowy.command.MarkCommand;
+import snowy.task.FixedDuration;
 import snowy.task.Task;
 import snowy.task.ToDo;
 import snowy.task.Deadline;
@@ -69,6 +70,18 @@ public class Parser {
             }
 
             return new AddTaskCommand(new Event(eventParts[0], eventParts[1] + " to " + eventParts[2]));
+        case "fixedduration":
+            if (parts.length < 2) {
+                throw new SnowyException("OOPS! The description of a fixed duration cannot be empty!");
+            }
+
+            String[] fdParts = parts[1].split(" /needs ", 2);
+
+            if (fdParts.length < 2) {
+                throw new SnowyException("You need to indicate a specific duration for a fixed duration task!");
+            }
+
+            return new AddTaskCommand(new FixedDuration(fdParts[0], fdParts[1]));
         case "mark":
             return new MarkCommand(Integer.parseInt(parts[1]), true);
         case "unmark":
