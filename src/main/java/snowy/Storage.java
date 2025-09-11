@@ -55,6 +55,7 @@ public class Storage {
      * @param tasks
      */
     public void save(ArrayList<Task> tasks) {
+        assert tasks != null : "Empty task list should not be saved to local file";
         try (FileWriter writer = new FileWriter(filePath)) {
             for (Task task : tasks) {
                 writer.write(task.toString() + System.lineSeparator());

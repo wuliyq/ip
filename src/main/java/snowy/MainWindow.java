@@ -34,6 +34,8 @@ public class MainWindow extends AnchorPane {
     /** Injects the Duke instance */
     public void setSnowy(Snowy s) {
         snowy = s;
+        String greeting = "Hello! I'm Snowy. How can I help you today?";
+        dialogContainer.getChildren().add(DialogBox.getSnowyDialog(greeting, dukeImage));
     }
 
     /**

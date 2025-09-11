@@ -40,14 +40,19 @@ public class TaskList {
     }
 
     public Task getTask(int index) {
-        return list.get(index);
+        assert index >= 0 && index < list.size() : "Index out of bounds";
+        Task t = list.get(index);
+        assert t != null : "Task at index " + index + " should not be null";
+        return t;
     }
 
     public void addTask(Task task) {
+        assert task != null : "Empty task should not be added to the task list";
         list.add(task);
     }
 
     public void deleteTask(int taskNum) {
+        assert taskNum >= 0 && taskNum < list.size() : "TaskNum out of bounds";
         list.remove(taskNum);
     }
 
