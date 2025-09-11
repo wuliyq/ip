@@ -31,7 +31,7 @@ public class TaskList {
         return list.isEmpty();
     }
 
-    public ArrayList<Task> getTasks() {
+    public ArrayList<Task> getTaskList() {
         return list;
     }
 
@@ -55,12 +55,4 @@ public class TaskList {
         assert taskNum >= 0 && taskNum < list.size() : "TaskNum out of bounds";
         list.remove(taskNum);
     }
-
-//    public void addTask(Task task) {
-//        list.add(task);
-//    }
-//
-//    public void deleteTask(int num) {
-//        list.remove(num - 1);
-//    }
 }
