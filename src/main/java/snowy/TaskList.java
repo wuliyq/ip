@@ -3,6 +3,7 @@ package snowy;
 import snowy.task.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TaskList {
     private ArrayList<Task> list;
@@ -29,6 +30,10 @@ public class TaskList {
 
     public boolean isEmptyList() {
         return list.isEmpty();
+    }
+
+    public List<Task> findUndoneTasks() {
+        return this.list.stream().filter(x -> !x.checkStatus()).toList();
     }
 
     public ArrayList<Task> getTaskList() {
