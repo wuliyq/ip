@@ -30,6 +30,7 @@ public class Parser {
      * @throws SnowyException
      */
     public static Command parse(String input) throws SnowyException {
+        assert input != null && (!input.trim().isEmpty()) : "Input command should not be empty";
         String[] parts = input.split(" ", 2);
         String command = parts[0].toLowerCase();
 
