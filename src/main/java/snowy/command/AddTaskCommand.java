@@ -15,7 +15,7 @@ public class AddTaskCommand extends Command {
     public String execute(TaskList tasks, Storage storage) {
         tasks.addTask(task);
 //        ui.addTask(tasks, task);
-        storage.save(tasks.getTasks());
+        storage.save(tasks.getTaskList());
         return "Got it. I've added this task: " +
                 task +
                 ". " +

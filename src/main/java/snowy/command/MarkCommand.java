@@ -1,7 +1,6 @@
 package snowy.command;
 
 import snowy.task.Task;
-import snowy.ui.Ui;
 import snowy.TaskList;
 import snowy.Storage;
 
@@ -19,11 +18,11 @@ public class MarkCommand extends Command {
         Task task = tasks.getTask(taskNum);
         if (isMarkDone) {
             task.mark();
-            storage.save(tasks.getTasks());
+            storage.save(tasks.getTaskList());
             return "Sure! I've marked this task as done: " + task;
         } else {
             task.unmark();
-            storage.save(tasks.getTasks());
+            storage.save(tasks.getTaskList());
             return "OK, I've marked this task as not done yet: " + task;
         }
     }
