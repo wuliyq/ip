@@ -1,5 +1,5 @@
 # Snowy User Guide
-![Screenshot of using Snowy](../Ui.png)
+![Screenshot of using Snowy](Ui.png)
 Snowy is an interactive bot which can help you take down your tasks so you can free your mind.
 
 ## Adding todo task
