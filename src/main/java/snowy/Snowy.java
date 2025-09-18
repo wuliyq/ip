@@ -12,6 +12,10 @@ public class Snowy {
     //private final Ui ui;
     private static final String DEFAULT_FILE_PATH = "data/snowy.txt";
 
+    /**
+     * Takes in another non-default filepath and initializes storage and task list accordingly.
+     * @param filePath
+     */
     public Snowy(String filePath) {
         //ui = new Ui();
         storage = new Storage(filePath);

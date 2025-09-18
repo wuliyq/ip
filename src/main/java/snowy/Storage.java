@@ -68,7 +68,7 @@ public class Storage {
     /**
      * Creates different tasks based on the type of the task reads from the local txt file.
      * @param line
-     * @return
+     * @return A task corresponding to the required task type
      * @throws Exception
      */
     public Task parseLine(String line) throws Exception {
@@ -91,6 +91,8 @@ public class Storage {
                 return new Deadline(task, isDone, parts[3]);
             case "E":
                 return new Event(task, isDone, parts[3]);
+            case "F":
+                return new FixedDuration(task, isDone, parts[3]);
             default:
                 throw new IllegalArgumentException("Unknown task type: " + type);
         }

@@ -32,6 +32,10 @@ public class TaskList {
         return list.isEmpty();
     }
 
+    /**
+     * Uses stream to check if the task list contains any undone tasks.
+     * @return A list of tasks that are not done.
+     */
     public List<Task> findUndoneTasks() {
         return this.list.stream().filter(x -> !x.checkStatus()).toList();
     }
@@ -44,6 +48,11 @@ public class TaskList {
         return list.size();
     }
 
+    /**
+     * Gets the task corresponding the provided task number.
+     * @param index
+     * @return A task from the task list
+     */
     public Task getTask(int index) {
         assert index >= 0 && index < list.size() : "Index out of bounds";
         Task t = list.get(index);
@@ -51,11 +60,19 @@ public class TaskList {
         return t;
     }
 
+    /**
+     * Adds the provided task to the task list.
+     * @param task
+     */
     public void addTask(Task task) {
         assert task != null : "Empty task should not be added to the task list";
         list.add(task);
     }
 
+    /**
+     * Deletes the task corresponding to the task number from the task list.
+     * @param taskNum
+     */
     public void deleteTask(int taskNum) {
         assert taskNum >= 0 && taskNum < list.size() : "TaskNum out of bounds";
         list.remove(taskNum);
