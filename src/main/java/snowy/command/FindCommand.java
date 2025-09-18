@@ -14,6 +14,12 @@ public class FindCommand extends Command {
         this.keyWord = keyWord;
     }
 
+    /**
+     * Finds tasks that contain the keyword from user.
+     * @param tasks
+     * @param storage
+     * @return A string that is either the string format of the found tasks, or no tasks found
+     */
     @Override
     public String execute(TaskList tasks, Storage storage) {
         ArrayList<Task> result = new ArrayList<>();

@@ -11,6 +11,12 @@ public class DeleteCommand extends Command{
         this.taskNum = taskNum;
     }
 
+    /**
+     * Deletes the task corresponding to the task number from the task list.
+     * @param tasks
+     * @param storage
+     * @return A string that shows the deleted tasks and the number of tasks remaining
+     */
     @Override
     public String execute(TaskList tasks, Storage storage) {
         Task task = tasks.getTask(taskNum);

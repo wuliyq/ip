@@ -13,6 +13,12 @@ public class MarkCommand extends Command {
         this.isMarkDone = isMarkDone;
     }
 
+    /**
+     * Marks the task corresponding to the task number in the task list as done or not done.
+     * @param tasks
+     * @param storage
+     * @return A string that shows what task is marked as done or not done
+     */
     @Override
     public String execute(TaskList tasks, Storage storage) {
         Task task = tasks.getTask(taskNum);
