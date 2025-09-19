@@ -22,13 +22,13 @@ dependencies {
 }
 
 application {
-    mainClass.set("Launcher")
+    mainClass.set("snowy.Launcher")
 }
 
 shadowJar {
     archiveBaseName.set("Snowy")
-    archiveVersion.set('1.0')
-    archiveClassifier.set('')
+    archiveVersion.set('2.0')
+    archiveClassifier.set('all')
 }
 
 test {
