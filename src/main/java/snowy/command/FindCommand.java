@@ -31,10 +31,10 @@ public class FindCommand extends Command {
             }
         }
         if (result.isEmpty()) {
-            return "No tasks found with keyword: " + keyWord;
+            return "No tasks found with keyword: " + keyWord + ":(";
         } else {
             TaskList output = new TaskList(result);
-            return output.toString();
+            return "I found the following:\n" + output.toString();
         }
     }
 }

@@ -42,43 +42,57 @@ public class Parser {
             return new ListTasksCommand();
         case "todo":
             if (parts.length < 2) {
-                throw new SnowyException("OOPS! The description of a todo cannot be empty!");
+                throw new SnowyException(
+                        "OOPS! The description of a todo cannot be empty! " +
+                                "Use this format: todo <description>");
             }
 
             return new AddTaskCommand(new ToDo(parts[1]));
         case "deadline":
             if (parts.length < 2) {
-                throw new SnowyException("OOPS! The description of a deadline cannot be empty!");
+                throw new SnowyException(
+                        "OOPS! The description of a deadline cannot be empty! " +
+                                "Use this format: deadline <description> /by <date>");
             }
 
             String[] ddlParts = parts[1].split(" /by ", 2);
 
             if (ddlParts.length < 2) {
-                throw new SnowyException("You need to indicate a due date for a deadline task!");
+                throw new SnowyException(
+                        "You need to indicate a due date for a deadline task! " +
+                                "Use this format: deadline <description> /by <time>");
             }
 
             return new AddTaskCommand(new Deadline(ddlParts[0], ddlParts[1]));
         case "event":
             if (parts.length < 2) {
-                throw new SnowyException("OOPS! The description of an event cannot be empty!");
+                throw new SnowyException(
+                        "OOPS! The description of an event cannot be empty! " +
+                        "Use this format: event <description> /from <time> /to <time>");
             }
 
             String[] eventParts = parts[1].split(" /from | /to ");
 
             if (eventParts.length < 3) {
-                throw new SnowyException("An event needs a start and end time!");
+                throw new SnowyException(
+                        "An event needs a start and end time! " +
+                                "Use this format: event <description> /from <time> /to <time>");
             }
 
             return new AddTaskCommand(new Event(eventParts[0], eventParts[1] + " to " + eventParts[2]));
         case "fixedduration":
             if (parts.length < 2) {
-                throw new SnowyException("OOPS! The description of a fixed duration cannot be empty!");
+                throw new SnowyException(
+                        "OOPS! The description of a fixed duration cannot be empty! " +
+                                "Use this format: fixedduration <description> /needs <duration>");
             }
 
             String[] fdParts = parts[1].split(" /needs ", 2);
 
             if (fdParts.length < 2) {
-                throw new SnowyException("You need to indicate a specific duration for a fixed duration task!");
+                throw new SnowyException(
+                        "You need to indicate a specific duration for a fixed duration task! " +
+                                "Use this format: fixedduration <description> /needs <duration>");
             }
 
             return new AddTaskCommand(new FixedDuration(fdParts[0], fdParts[1]));
@@ -91,7 +105,7 @@ public class Parser {
         case "find":
             return new FindCommand(parts[1]);
         default:
-            throw new SnowyException("Invalid input!");
+            throw new SnowyException("Sorry I don't understand this...");
         }
     }
 }

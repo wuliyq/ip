@@ -29,7 +29,7 @@ public class MarkCommand extends Command {
         } else {
             task.unmark();
             storage.save(tasks.getTaskList());
-            return "OK, I've marked this task as not done yet: " + task;
+            return "Okie, I've marked this task as not done yet: " + task;
         }
     }
 }

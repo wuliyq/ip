@@ -22,12 +22,12 @@ public class AddTaskCommand extends Command {
         tasks.addTask(task);
 //        ui.addTask(tasks, task);
         storage.save(tasks.getTaskList());
-        return "Got it. I've added this task: " +
+        return "Okay! I've added this task: " +
                 task +
                 ". " +
                 "Now you have " +
                 tasks.getSize() +
                 (tasks.getSize() == 1 ? " task" : " tasks") +
-                " in the list.";
+                " in the list:D";
     }
 }
