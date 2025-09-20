@@ -29,7 +29,8 @@ public class ParserTest {
             Parser.parse("todo").execute(tasks, storage);
         });
 
-        assertEquals("OOPS! The description of a todo cannot be empty!", exception.getMessage());
+        assertEquals("OOPS! The description of a todo cannot be empty! " +
+                "Use this format: todo <description>", exception.getMessage());
     }
 
     @Test
@@ -51,6 +52,6 @@ public class ParserTest {
             Parser.parse("hi").execute(tasks, storage);
         });
 
-        assertEquals("Invalid input!", exception.getMessage());
+        assertEquals("Sorry I don't understand this...", exception.getMessage());
     }
 }
